@@ -125,6 +125,104 @@
   
     
     <h2 itemprop="name">
+      <a class="archive-article-title" href="/2016/04/07/apns-notice/">APNS开发帮助</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2016-04-07T08:32:38.000Z" itemprop="datePublished">2016/04/07</time>
+
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	<p>在处理iOS应用的通知时，碰到很头疼的问题。因为iOS在只有在特定条件下才会触发<code>didReceiveRemoteNotification</code>方法，目前已知的有2种情况：</p>
+<ul>
+<li>App在前台激活状态</li>
+<li>App在后台，收到通知时点击通知栏</li>
+</ul>
+<p>因此，想要即使的反馈信息给用户的话，我们就需要在3个地方处理通知的问题：</p>
+<ul>
+<li>第一个，应用启动时从服务器端获取数据（这个不用说了）</li>
+<li>第二个，应用回到前台的时判断是否需要从服务器获取数据</li>
+<li>第三个，在didReceiveRemoteNotification中判断<code>application.applicationState == .Active</code>时，从服务器获取最新数据。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) &#123;</span><br><span class="line">    if ( application.applicationState == .Active )&#123;</span><br><span class="line">        //触发1</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        //触发2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func applicationWillEnterForeground(application: UIApplication) &#123;</span><br><span class="line">    //触发3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>动作</th>
+<th>didReceiveRemoteNotification</th>
+<th>applicationWillEnterForeground</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App在前台</td>
+<td>收到通知</td>
+<td>触发1</td>
+<td>无触发</td>
+</tr>
+<tr>
+<td>App在后台</td>
+<td>收到通知，什么都不做</td>
+<td>无触发</td>
+<td>无触发</td>
+</tr>
+<tr>
+<td>App在后台</td>
+<td>收到通知，点击应用</td>
+<td>无触发</td>
+<td>触发</td>
+</tr>
+<tr>
+<td>App在后台</td>
+<td>收到通知，点击通知栏</td>
+<td>触发2</td>
+<td>触发</td>
+</tr>
+<tr>
+<td>App未启动</td>
+<td>收到通知，点击通知栏</td>
+<td>无触发</td>
+<td>无触发</td>
+</tr>
+<tr>
+<td>App未启动</td>
+<td>收到通知，点击应用</td>
+<td>无触发</td>
+<td>无触发</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <br>
+    <br>
+    <a href="/2016/04/07/apns-notice/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+  </div>
+  
+    <div class="col-xs-12">
+  
+    
+    <h2 itemprop="name">
       <a class="archive-article-title" href="/2016/04/07/angularjs-ui-route-provider/">AngularJS - 利用ui-route及provider实现页面数据预加载的关键</a>
     </h2>
 

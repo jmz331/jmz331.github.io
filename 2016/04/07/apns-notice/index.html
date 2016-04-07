@@ -7,30 +7,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo教程1 - 写作 | 庄的小站</title>
+  <title>APNS开发帮助 | 庄的小站</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta name="description" content="你可以执行下列命令来创建一篇新文章。
-1$ hexo new [layout] &amp;lt;title&amp;gt;
-您可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。
-布局（Layout）Hexo 有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而您自定义的其他布局和 p">
+  <meta name="description" content="在处理iOS应用的通知时，碰到很头疼的问题。因为iOS在只有在特定条件下才会触发didReceiveRemoteNotification方法，目前已知的有2种情况：
+
+App在前台激活状态
+App在后台，收到通知时点击通知栏
+
+因此，想要即使的反馈信息给用户的话，我们就需要在3个地方处理通知的问题：
+
+第一个，应用启动时从服务器端获取数据（这个不用说了）
+第二个，应用回到前台的时判断是否需要从服务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo教程1 - 写作">
-<meta property="og:url" content="/2016/04/07/hexo-guide-1/index.html">
+<meta property="og:title" content="APNS开发帮助">
+<meta property="og:url" content="/2016/04/07/apns-notice/index.html">
 <meta property="og:site_name" content="庄的小站">
-<meta property="og:description" content="你可以执行下列命令来创建一篇新文章。
-1$ hexo new [layout] &amp;lt;title&amp;gt;
-您可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。
-布局（Layout）Hexo 有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而您自定义的其他布局和 p">
-<meta property="og:updated_time" content="2016-04-07T07:02:09.000Z">
+<meta property="og:description" content="在处理iOS应用的通知时，碰到很头疼的问题。因为iOS在只有在特定条件下才会触发didReceiveRemoteNotification方法，目前已知的有2种情况：
+
+App在前台激活状态
+App在后台，收到通知时点击通知栏
+
+因此，想要即使的反馈信息给用户的话，我们就需要在3个地方处理通知的问题：
+
+第一个，应用启动时从服务器端获取数据（这个不用说了）
+第二个，应用回到前台的时判断是否需要从服务">
+<meta property="og:updated_time" content="2016-04-07T09:12:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo教程1 - 写作">
-<meta name="twitter:description" content="你可以执行下列命令来创建一篇新文章。
-1$ hexo new [layout] &amp;lt;title&amp;gt;
-您可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。
-布局（Layout）Hexo 有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而您自定义的其他布局和 p">
+<meta name="twitter:title" content="APNS开发帮助">
+<meta name="twitter:description" content="在处理iOS应用的通知时，碰到很头疼的问题。因为iOS在只有在特定条件下才会触发didReceiveRemoteNotification方法，目前已知的有2种情况：
+
+App在前台激活状态
+App在后台，收到通知时点击通知栏
+
+因此，想要即使的反馈信息给用户的话，我们就需要在3个地方处理通知的问题：
+
+第一个，应用启动时从服务器端获取数据（这个不用说了）
+第二个，应用回到前台的时判断是否需要从服务">
   
     <link rel="alternative" href="/atom.xml" title="庄的小站" type="application/atom+xml">
   
@@ -121,13 +136,13 @@
   <section id="main">
     
     <h2 itemprop="name">
-      <a class="article-title" href="/2016/04/07/hexo-guide-1/">hexo教程1 - 写作</a>
+      <a class="article-title" href="/2016/04/07/apns-notice/">APNS开发帮助</a>
     </h2>
 
 
     <div class="row">
 <div class="col-md-9 col-sm-9 blog-posts">
-<article id="post-hexo-guide-1" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+<article id="post-apns-notice" class="article article-type-post blog-item" itemscope itemprop="blogPost">
   <div class="article-meta">
   </div>
   <div class="article-inner">
@@ -137,15 +152,11 @@
       <ul class="blog-info">
 	<li><i class="fa fa-user"></i> ChinaJMZ</li>
 	<li><i class="fa fa-calendar"></i>
-	  <time datetime="2016-04-07T06:49:03.000Z" itemprop="datePublished">2016/04/07</time>
+	  <time datetime="2016-04-07T08:32:38.000Z" itemprop="datePublished">2016/04/07</time>
 
 	</li>
 	<li class="hidden-xs"><i class="fa fa-tags"></i> 
 	  
-  
-    <a href="/tags/hexo-guide/" title="hexo guide">hexo guide</a>
-  
-
 
 	</li>
       </ul>
@@ -155,64 +166,63 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>你可以执行下列命令来创建一篇新文章。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<p>您可以在命令中指定文章的布局（layout），默认为 <code>post</code>，可以通过修改 <code>_config.yml</code> 中的 <code>default_layout</code> 参数来指定默认布局。</p>
-<h1 id="布局（Layout）"><a href="#布局（Layout）" class="headerlink" title="布局（Layout）"></a>布局（Layout）</h1><p>Hexo 有三种默认布局：<code>post</code>、<code>page</code> 和 <code>draft</code>，它们分别对应不同的路径，而您自定义的其他布局和 <code>post</code> 相同，都将储存到 <code>source/_posts</code> 文件夹。</p>
+        <p>在处理iOS应用的通知时，碰到很头疼的问题。因为iOS在只有在特定条件下才会触发<code>didReceiveRemoteNotification</code>方法，目前已知的有2种情况：</p>
+<ul>
+<li>App在前台激活状态</li>
+<li>App在后台，收到通知时点击通知栏</li>
+</ul>
+<p>因此，想要即使的反馈信息给用户的话，我们就需要在3个地方处理通知的问题：</p>
+<ul>
+<li>第一个，应用启动时从服务器端获取数据（这个不用说了）</li>
+<li>第二个，应用回到前台的时判断是否需要从服务器获取数据</li>
+<li>第三个，在didReceiveRemoteNotification中判断<code>application.applicationState == .Active</code>时，从服务器获取最新数据。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) &#123;</span><br><span class="line">    if ( application.applicationState == .Active )&#123;</span><br><span class="line">        //触发1</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        //触发2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func applicationWillEnterForeground(application: UIApplication) &#123;</span><br><span class="line">    //触发3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
-<th>布局</th>
-<th>路径</th>
+<th>条件</th>
+<th>动作</th>
+<th>didReceiveRemoteNotification</th>
+<th>applicationWillEnterForeground</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>post</td>
-<td>source/_posts</td>
+<td>App在前台</td>
+<td>收到通知</td>
+<td>触发1</td>
+<td>无触发</td>
 </tr>
 <tr>
-<td>page</td>
-<td>source</td>
+<td>App在后台</td>
+<td>收到通知，什么都不做</td>
+<td>无触发</td>
+<td>无触发</td>
 </tr>
 <tr>
-<td>draft</td>
-<td>source/_drafts</td>
-</tr>
-</tbody>
-</table>
-<h1 id="文件名称"><a href="#文件名称" class="headerlink" title="文件名称"></a>文件名称</h1><p>Hexo 默认以标题做为文件名称，但您可编辑 <code>new_post_name</code> 参数来改变默认的文件名称，举例来说，设为 <code>:year-:month-:day-:title.md</code> 可让您更方便的通过日期来管理文章。</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:title</td>
-<td>标题（小写，空格将会被替换为短杠）</td>
+<td>App在后台</td>
+<td>收到通知，点击应用</td>
+<td>无触发</td>
+<td>触发</td>
 </tr>
 <tr>
-<td>:year</td>
-<td>建立的年份，比如， 2015</td>
+<td>App在后台</td>
+<td>收到通知，点击通知栏</td>
+<td>触发2</td>
+<td>触发</td>
 </tr>
 <tr>
-<td>:month</td>
-<td>建立的月份（有前导零），比如， 04</td>
+<td>App未启动</td>
+<td>收到通知，点击通知栏</td>
+<td>无触发</td>
+<td>无触发</td>
 </tr>
 <tr>
-<td>:i_month</td>
-<td>建立的月份（无前导零），比如， 4</td>
-</tr>
-<tr>
-<td>:day</td>
-<td>建立的日期（有前导零），比如， 07</td>
-</tr>
-<tr>
-<td>:i_day</td>
-<td>建立的日期（无前导零），比如， 7</td>
+<td>App未启动</td>
+<td>收到通知，点击应用</td>
+<td>无触发</td>
+<td>无触发</td>
 </tr>
 </tbody>
 </table>
@@ -224,19 +234,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/07/gulp-guide/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          gulp-guide
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/04/07/hexo-github/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/07/angularjs-ui-route-provider/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hexo+Github来搭建一个博客站点</div>
+      <div class="article-nav-title">AngularJS - 利用ui-route及provider实现页面数据预加载的关键</div>
     </a>
   
 </nav>
