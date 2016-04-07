@@ -7,45 +7,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo+Github来搭建一个博客站点 | 庄的小站</title>
+  <title>AngularJS - 利用ui-route及provider实现页面数据预加载的关键 | 庄的小站</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta name="description" content="笔记 简单的记录利用hexo来搭建一个github.io的博客站点
-hexo什么是hexo？Hexo是一个快速、简洁且搞笑的博客框架。Hexo使用Markdown（也可使用其他渲染引擎）来解析文章，在几秒内即可通过配置好的主题来生成静态网页。
-安装首先前提条件，你需要在电脑内安装好下列软件：（此部分省略）
-
-Node.js
-Git
-
-然后，我们用npm执行下面命令就可以完成hexo的安装：
-1np">
+  <meta name="description" content="我在使用angular的时候经常碰到一个问题，希望在必要数据加载完成之前暂时不要显示页面。这时，我一般用ui-route的resolve功能并结合数据接口来实现。（数据api我是一般用provider来封装）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo+Github来搭建一个博客站点">
-<meta property="og:url" content="/2016/04/07/hexo-github/index.html">
+<meta property="og:title" content="AngularJS - 利用ui-route及provider实现页面数据预加载的关键">
+<meta property="og:url" content="/2016/04/07/angularjs-ui-route-provider/index.html">
 <meta property="og:site_name" content="庄的小站">
-<meta property="og:description" content="笔记 简单的记录利用hexo来搭建一个github.io的博客站点
-hexo什么是hexo？Hexo是一个快速、简洁且搞笑的博客框架。Hexo使用Markdown（也可使用其他渲染引擎）来解析文章，在几秒内即可通过配置好的主题来生成静态网页。
-安装首先前提条件，你需要在电脑内安装好下列软件：（此部分省略）
-
-Node.js
-Git
-
-然后，我们用npm执行下面命令就可以完成hexo的安装：
-1np">
-<meta property="og:updated_time" content="2016-04-07T05:08:40.000Z">
+<meta property="og:description" content="我在使用angular的时候经常碰到一个问题，希望在必要数据加载完成之前暂时不要显示页面。这时，我一般用ui-route的resolve功能并结合数据接口来实现。（数据api我是一般用provider来封装）">
+<meta property="og:updated_time" content="2016-04-07T07:21:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo+Github来搭建一个博客站点">
-<meta name="twitter:description" content="笔记 简单的记录利用hexo来搭建一个github.io的博客站点
-hexo什么是hexo？Hexo是一个快速、简洁且搞笑的博客框架。Hexo使用Markdown（也可使用其他渲染引擎）来解析文章，在几秒内即可通过配置好的主题来生成静态网页。
-安装首先前提条件，你需要在电脑内安装好下列软件：（此部分省略）
-
-Node.js
-Git
-
-然后，我们用npm执行下面命令就可以完成hexo的安装：
-1np">
+<meta name="twitter:title" content="AngularJS - 利用ui-route及provider实现页面数据预加载的关键">
+<meta name="twitter:description" content="我在使用angular的时候经常碰到一个问题，希望在必要数据加载完成之前暂时不要显示页面。这时，我一般用ui-route的resolve功能并结合数据接口来实现。（数据api我是一般用provider来封装）">
   
     <link rel="alternative" href="/atom.xml" title="庄的小站" type="application/atom+xml">
   
@@ -136,13 +112,13 @@ Git
   <section id="main">
     
     <h2 itemprop="name">
-      <a class="article-title" href="/2016/04/07/hexo-github/">Hexo+Github来搭建一个博客站点</a>
+      <a class="article-title" href="/2016/04/07/angularjs-ui-route-provider/">AngularJS - 利用ui-route及provider实现页面数据预加载的关键</a>
     </h2>
 
 
     <div class="row">
 <div class="col-md-9 col-sm-9 blog-posts">
-<article id="post-hexo-github" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+<article id="post-angularjs-ui-route-provider" class="article article-type-post blog-item" itemscope itemprop="blogPost">
   <div class="article-meta">
   </div>
   <div class="article-inner">
@@ -152,15 +128,13 @@ Git
       <ul class="blog-info">
 	<li><i class="fa fa-user"></i> ChinaJMZ</li>
 	<li><i class="fa fa-calendar"></i>
-	  <time datetime="2016-04-07T03:50:39.000Z" itemprop="datePublished">2016/04/07</time>
+	  <time datetime="2016-04-07T07:20:29.000Z" itemprop="datePublished">2016/04/07</time>
 
 	</li>
 	<li class="hidden-xs"><i class="fa fa-tags"></i> 
 	  
   
-    <a href="/tags/hexo/" title="hexo">hexo</a>,
-  
-    <a href="/tags/github-io/" title="github.io">github.io</a>
+    <a href="/tags/angularjs/" title="angularjs">angularjs</a>
   
 
 
@@ -172,30 +146,11 @@ Git
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>笔记</strong> 简单的记录利用hexo来搭建一个github.io的博客站点</p>
-<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><p>什么是hexo？Hexo是一个快速、简洁且搞笑的博客框架。Hexo使用Markdown（也可使用其他渲染引擎）来解析文章，在几秒内即可通过配置好的主题来生成静态网页。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>首先前提条件，你需要在电脑内安装好下列软件：（此部分省略）</p>
-<ul>
-<li>Node.js</li>
-<li>Git</li>
-</ul>
-<p>然后，我们用npm执行下面命令就可以完成hexo的安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>Hexo简要命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n #生成文章，或者也可以在source/_posts手动编辑</span><br><span class="line">hexo s #本地预览</span><br><span class="line">hexo g #生成public静态网站</span><br><span class="line">#生成public目录之后，可以利用git来手动同步到github.io上</span><br></pre></td></tr></table></figure>
-<h1 id="Github-io"><a href="#Github-io" class="headerlink" title="Github.io"></a>Github.io</h1><h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><ul>
-<li>登录github并注册自己的帐号，例name</li>
-<li>创建一个新的<code>repository</code>，名称必须是跟帐号名称一致，例<code>name.github.io</code></li>
-<li>首次创建需要耐心等待，之后就可以访问静态主页，输入<code>http://name.github.io</code></li>
-</ul>
-<h2 id="同步内容至Github"><a href="#同步内容至Github" class="headerlink" title="同步内容至Github"></a>同步内容至Github</h2><p>建议不要直接在hexo的public下面追加git版本管理，这里只做为参考</p>
-<ul>
-<li>进到hexo生成的public目录并执行<code>git init</code>命令</li>
-<li>追加远程git<code>git remote add xxxooo</code></li>
-<li>然后提交修改并push到github上面</li>
-<li>再次输入<code>http://name.github.io</code>你应该可以看到最新的页面了。</li>
-</ul>
-
+        <p>我在使用angular的时候经常碰到一个问题，希望在必要数据加载完成之前暂时不要显示页面。这时，我一般用<code>ui-route</code>的<code>resolve</code>功能并结合数据接口来实现。（数据api我是一般用<code>provider</code>来封装）<br><a id="more"></a></p>
+<p>首先，在<code>config</code>中注入<code>testProvider</code>，并非必须，只是演示下如何配置<code>provider</code>。这里有个区别就是，在config中不能直接访问<code>provider</code>的<code>$get</code>中的方法，但是可以访问<code>provider</code>对象的属性与方法。(比如下面代码中的<code>this.setPrefix</code>方法)</p>
+<p>其次，然后回到我的需求部分，在ui-route里面获取需要预先加载的数据。这个跟<code>controller</code>中的注入没有区别，如例子只要在<code>resolve.userInfo</code>的方法参数上添加自己需要的<code>provider</code>名称，这里就是<code>test</code>，这样我们就可以直接调用<code>test.current</code>了。<code>resolve</code>也是一个关键，我们用它来获取数据并注入到<code>controller</code>中。</p>
+<p>最后，在<code>controller</code>里面注入我们需要使用的数据，<code>userInfo</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&apos;logging&apos;, [])</span><br><span class="line">    .provider(&quot;test&quot;, function() &#123;</span><br><span class="line">        var prefix;</span><br><span class="line">        this.setPrefix = function(p) &#123;</span><br><span class="line">            prefix = p;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        this.$get = function() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                log: function(msg) &#123;</span><br><span class="line">                    console.log(prefix,msg);</span><br><span class="line">                &#125;,</span><br><span class="line">                current:function()&#123;</span><br><span class="line">                	return &#123;&quot;name&quot;:&quot;JMZ&quot;&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">angular.module(&apos;myApp&apos;, [&apos;logging&apos;]).config([&quot;$stateProvider&quot;, &quot;testProvider&quot; function ($stateProvider, testProvider) &#123;</span><br><span class="line">    testProvider.setPrefix(&quot;works: &quot;);</span><br><span class="line"></span><br><span class="line">    $stateProvider.state(&quot;home/index&quot;, &#123;</span><br><span class="line">        url: &quot;/&quot;,</span><br><span class="line">        &quot;templateUrl&quot;: &quot;home/index.tpl.html&quot;,</span><br><span class="line">        &quot;controller&quot;: &quot;home/index.ctrl&quot;</span><br><span class="line">        resolve: &#123;</span><br><span class="line">            userInfo: function ($q,test) &#123;</span><br><span class="line">                return test.current();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;]).controller(&quot;myCtrl&quot;, [&quot;$scope&quot;,&quot;test&quot;,&quot;userInfo&quot;,function($scope, test,userInfo) &#123;</span><br><span class="line">    test.log(userInfo);    </span><br><span class="line">    $scope.$watch(&apos;myModel&apos;, function(newval) &#123;</span><br><span class="line">        test.log(newval);</span><br><span class="line">    &#125;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
       
     </div>
   </div>
@@ -203,15 +158,11 @@ Git
     
 <nav id="article-nav">
   
-    <a href="/2016/04/07/hexo-guide-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          hexo教程1 - 写作
-        
-      </div>
-    </a>
   
+    <a href="/2016/04/07/gulp-guide/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">gulp-guide</div>
+    </a>
   
 </nav>
 
