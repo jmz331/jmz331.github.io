@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>庄的小站</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="庄的小站">
+<meta property="og:url" content="/index.html">
+<meta property="og:site_name" content="庄的小站">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="庄的小站">
+<meta name="twitter:description">
+  
+    <link rel="alternative" href="/atom.xml" title="庄的小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/blue.css">
+  <link rel="stylesheet" href="/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN HEADER -->
+<div class="header">
+  <div class="container">
+    <!--<a class="site-logo" href="/" id="logo">庄的小站</a>-->
+
+    <!--<a class="site-logo" href="/">
+      <img src="/metronic/assets/corporate/img/logos/logo-corp-blue.png" alt="Metronic FrontEnd">
+    </a>-->
+
+    <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+    <!-- BEGIN NAVIGATION -->
+    <div class="header-navigation pull-right font-transform-inherit">
+      <ul>
+	
+	<li class="active">
+	  <a  href="/">Home</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/archives/">Blog</a>
+	</li>
+	
+	<!-- BEGIN TOP SEARCH -->
+	<li class="menu-search">
+	  <span class="sep"></span>
+	  <i class="fa fa-search search-btn"></i>
+	  <div class="search-box">
+	    <form action="#">
+	      <div class="input-group">
+		<input type="text" placeholder="Search" class="form-control st-default-search-input">
+		<span class="input-group-btn">
+		  <button class="btn btn-primary" type="submit">Search</button>
+		</span>
+	      </div>
+	    </form>
+	  </div> 
+	</li>
+	<!-- END TOP SEARCH -->
+      </ul>
+    </div>
+    <!-- END NAVIGATION -->
+  </div>
+</div>
+<!-- Header END -->
+
+  
+  <div class="container">
+    <ul class="breadcrumb">
+      <li class="active">Home</li>
+    </ul>
+  <div id="main">
+    <div class="row">
+
+<div class="col-xs-12 blog-posts">
+
+
+  <section class="archives-wrap">
+    <div class="archives">
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+  </div>
+  
+    <div class="col-xs-12">
+  
+    
+    <h2 itemprop="name">
+      <a class="archive-article-title" href="/2016/04/07/gulp-guide/">gulp-guide</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2016-04-07T07:02:50.000Z" itemprop="datePublished">2016/04/07</time>
+
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	<h1 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h1><p>gulp是基于Node.js的前端自动化构建工具，主要用于代码打包。目前主流的前端打包工具，grunt，gulp，webpack。grunt现在似乎慢慢被gulp取代，而我使用gulp也是冲着大家说的配置简单去的，至于通道流，运行文件什么的其实还是次要的；webpack现在很火，听说功能强大，没有用过。</p>
+<p><code>npm install gulp -g</code></p>
+<p>注意需要在npm全局中安装gulp，否则命令窗口中找不到gulp快捷命令，记得检查环境变量的配置情况。</p>
+<h2 id="gulp-插件"><a href="#gulp-插件" class="headerlink" title="gulp 插件"></a>gulp 插件</h2><p>gulp的使用离不开gulp插件的使用，下面是常用的几款。</p>
+<blockquote>
+<p>npm install del gulp gulp-concat gulp-minify-css gulp-replace gulp-uglify gulp-rev gulp-rev-collector –save-dev<br>del 和 gulp-clean<br>del是node.js的插件，两者的效果相似，都是用来清除文件。至于为什么使用 del，而不是 gulp-clean，我是看到网上一篇文章推荐的。</p>
+</blockquote>
+<ul>
+<li><p>gulp-concat</p>
+<blockquote>
+<p>gulp-concat用来做文件合并，可以将多个文件合并成一个文件，减少静态资源数量。</p>
+</blockquote>
+</li>
+<li><p>gulp-minify-css</p>
+<blockquote>
+<p>gulp-minify-css是css的压缩工具。</p>
+</blockquote>
+</li>
+<li><p>gulp-uglify</p>
+<blockquote>
+<p>gulp-uglify是js的压缩工具。官方文档上是这么写的 “Minify files with UglifyJS.”</p>
+</blockquote>
+</li>
+<li><p>gulp-replace</p>
+<blockquote>
+<p>gulp-replace是一个文本修改插件，我们一般用来做文件内容的的修改，常用的是路径修改。</p>
+</blockquote>
+</li>
+<li><p>gulp-rev和gulp-rev-collector</p>
+<blockquote>
+<p>gulp-rev和gulp-rev-collector，并没有用到，这里只做标示。这两个插件可以用来处理文件名，同时生成一个json文件保存修改前的文件名和修改后的文件名，并且自动处理文件中的修改，例如图片文件至于css文件。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="gulp的配置文件gulpfile-js"><a href="#gulp的配置文件gulpfile-js" class="headerlink" title="gulp的配置文件gulpfile.js"></a>gulp的配置文件gulpfile.js</h2><p>gulp依赖于配置文件gulpfile.js，在运行目录下需要手动创建gulpfile.js，gulp的任务执行代码会调用gulpfile.js。</p>
+<h2 id="gulp-语法"><a href="#gulp-语法" class="headerlink" title="gulp 语法"></a>gulp 语法</h2><p>gulp的语法很简单，功能实现依赖于各种插件，所以学习上成本很低。gulp的语法其实就是是nodejs的语法。</p>
+<h3 id="配置gulpfile"><a href="#配置gulpfile" class="headerlink" title="配置gulpfile"></a>配置gulpfile</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明依赖的插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>);</span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">'gulp-concat'</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</span><br><span class="line"><span class="keyword">var</span> del = <span class="built_in">require</span>(<span class="string">'del'</span>);</span><br><span class="line"><span class="keyword">var</span> replace = <span class="built_in">require</span>(<span class="string">'gulp-replace'</span>);</span><br><span class="line"><span class="comment">//定义task</span></span><br><span class="line">gulp.task(<span class="string">'taskName'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//default是默认task，当命令行缺省调用时会执行default任务。</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [])</span><br></pre></td></tr></table></figure>
+<h3 id="命令行调用task"><a href="#命令行调用task" class="headerlink" title="命令行调用task"></a>命令行调用task</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#直接调用具体的task</span><br><span class="line">gulp taskName </span><br><span class="line">#调用默认的default，如果没用会报错</span><br><span class="line">gulp</span><br></pre></td></tr></table></figure>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//多个任务合并</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'task1'</span>, <span class="string">'task2'</span>, <span class="string">'task3'</span>, <span class="string">'task4'</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//文件拷贝语法</span></span><br><span class="line">gulp.src(<span class="string">"oldPath/images/*.*"</span>)</span><br><span class="line">    .pipe(gulp.dest(newPath+<span class="string">'/images'</span>));</span><br><span class="line">    </span><br><span class="line"><span class="comment">//文件合并且压缩语法</span></span><br><span class="line"><span class="comment">//css文件</span></span><br><span class="line">gulp.src([<span class="string">'app/assets/styles/style.css'</span>,</span><br><span class="line">          <span class="string">'app/assets/styles/public.css'</span>,</span><br><span class="line">          <span class="string">'app/assets/styles/page.css'</span>,</span><br><span class="line">          <span class="string">'app/assets/styles/jquery-ui-1.10.3.css'</span>])</span><br><span class="line">    .pipe(concat(<span class="string">'style.css'</span>))</span><br><span class="line">    .pipe(minifycss())</span><br><span class="line">    .pipe(gulp.dest(newPath));</span><br><span class="line"><span class="comment">//js文件</span></span><br><span class="line">gulp.src([</span><br><span class="line">        <span class="string">'app/components/*/*.js'</span></span><br><span class="line">    ])</span><br><span class="line">    .pipe(concat(<span class="string">'components.js'</span>))</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(newPath));</span><br><span class="line"><span class="comment">//文本修改</span></span><br><span class="line">gulp.task(<span class="string">'demo-replace'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.src(demoDir+<span class="string">'/index.html'</span>)  </span><br><span class="line">      .pipe(replace(<span class="string">'&lt;link rel="stylesheet"&gt;'</span>, <span class="string">''</span>))  <span class="comment">//删除</span></span><br><span class="line">      .pipe(replace(<span class="regexp">/\.\.\/assets\//g</span>, <span class="string">''</span>))                <span class="comment">//正则替换</span></span><br><span class="line">      .pipe(replace(<span class="regexp">/\.\.\/images/g</span>, <span class="string">'images'</span>))  </span><br><span class="line">      .pipe(gulp.dest(newPath));</span><br><span class="line"><span class="comment">//目录清理</span></span><br><span class="line">gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</span><br><span class="line">    del(rootPath, cb);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>作者：<a href="http://my.oschina.net/u/924762/blog/628510?fromerr=0sUJ8B33" target="_blank" rel="external">http://my.oschina.net/u/924762/blog/628510?fromerr=0sUJ8B33</a></p>
+
+      
+    </div>
+    <br>
+    <br>
+    <a href="/2016/04/07/gulp-guide/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+  </div>
+  
+    <div class="col-xs-12">
+  
+    
+    <h2 itemprop="name">
+      <a class="archive-article-title" href="/2016/04/07/hexo-guide-1/">hexo教程1 - 写作</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2016-04-07T06:49:03.000Z" itemprop="datePublished">2016/04/07</time>
+
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+  
+    <a href="/tags/hexo-guide/" title="hexo guide">hexo guide</a>
+  
+
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	<p>你可以执行下列命令来创建一篇新文章。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>您可以在命令中指定文章的布局（layout），默认为 <code>post</code>，可以通过修改 <code>_config.yml</code> 中的 <code>default_layout</code> 参数来指定默认布局。</p>
+<h1 id="布局（Layout）"><a href="#布局（Layout）" class="headerlink" title="布局（Layout）"></a>布局（Layout）</h1><p>Hexo 有三种默认布局：<code>post</code>、<code>page</code> 和 <code>draft</code>，它们分别对应不同的路径，而您自定义的其他布局和 <code>post</code> 相同，都将储存到 <code>source/_posts</code> 文件夹。</p>
+<table>
+<thead>
+<tr>
+<th>布局</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>post</td>
+<td>source/_posts</td>
+</tr>
+<tr>
+<td>page</td>
+<td>source</td>
+</tr>
+<tr>
+<td>draft</td>
+<td>source/_drafts</td>
+</tr>
+</tbody>
+</table>
+<h1 id="文件名称"><a href="#文件名称" class="headerlink" title="文件名称"></a>文件名称</h1><p>Hexo 默认以标题做为文件名称，但您可编辑 <code>new_post_name</code> 参数来改变默认的文件名称，举例来说，设为 <code>:year-:month-:day-:title.md</code> 可让您更方便的通过日期来管理文章。</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:title</td>
+<td>标题（小写，空格将会被替换为短杠）</td>
+</tr>
+<tr>
+<td>:year</td>
+<td>建立的年份，比如， 2015</td>
+</tr>
+<tr>
+<td>:month</td>
+<td>建立的月份（有前导零），比如， 04</td>
+</tr>
+<tr>
+<td>:i_month</td>
+<td>建立的月份（无前导零），比如， 4</td>
+</tr>
+<tr>
+<td>:day</td>
+<td>建立的日期（有前导零），比如， 07</td>
+</tr>
+<tr>
+<td>:i_day</td>
+<td>建立的日期（无前导零），比如， 7</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <br>
+    <br>
+    <a href="/2016/04/07/hexo-guide-1/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+  </div>
+  
+    <div class="col-xs-12">
+  
+    
+    <h2 itemprop="name">
+      <a class="archive-article-title" href="/2016/04/07/hexo-github/">Hexo+Github来搭建一个博客站点</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2016-04-07T03:50:39.000Z" itemprop="datePublished">2016/04/07</time>
+
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+  
+    <a href="/tags/hexo/" title="hexo">hexo</a>,
+  
+    <a href="/tags/github-io/" title="github.io">github.io</a>
+  
+
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	<p><strong>笔记</strong> 简单的记录利用hexo来搭建一个github.io的博客站点</p>
+<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><p>什么是hexo？Hexo是一个快速、简洁且搞笑的博客框架。Hexo使用Markdown（也可使用其他渲染引擎）来解析文章，在几秒内即可通过配置好的主题来生成静态网页。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>首先前提条件，你需要在电脑内安装好下列软件：（此部分省略）</p>
+<ul>
+<li>Node.js</li>
+<li>Git</li>
+</ul>
+<p>然后，我们用npm执行下面命令就可以完成hexo的安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>Hexo简要命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n #生成文章，或者也可以在source/_posts手动编辑</span><br><span class="line">hexo s #本地预览</span><br><span class="line">hexo g #生成public静态网站</span><br><span class="line">#生成public目录之后，可以利用git来手动同步到github.io上</span><br></pre></td></tr></table></figure>
+<h1 id="Github-io"><a href="#Github-io" class="headerlink" title="Github.io"></a>Github.io</h1><h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><ul>
+<li>登录github并注册自己的帐号，例name</li>
+<li>创建一个新的<code>repository</code>，名称必须是跟帐号名称一致，例<code>name.github.io</code></li>
+<li>首次创建需要耐心等待，之后就可以访问静态主页，输入<code>http://name.github.io</code></li>
+</ul>
+<h2 id="同步内容至Github"><a href="#同步内容至Github" class="headerlink" title="同步内容至Github"></a>同步内容至Github</h2><p>建议不要直接在hexo的public下面追加git版本管理，这里只做为参考</p>
+<ul>
+<li>进到hexo生成的public目录并执行<code>git init</code>命令</li>
+<li>追加远程git<code>git remote add xxxooo</code></li>
+<li>然后提交修改并push到github上面</li>
+<li>再次输入<code>http://name.github.io</code>你应该可以看到最新的页面了。</li>
+</ul>
+
+      
+    </div>
+    <br>
+    <br>
+    <a href="/2016/04/07/hexo-github/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
+      
+    </div>
+    
+      <div id="page-nav" class="pagination">
+	<span class="page-number current">1</span>
+      </div>
+    
+  </section>
+
+</div>
+
+</div>
+
+  </div>
+  </div>
+
+
+
+      <!-- BEGIN FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN COPYRIGHT -->
+          <div class="col-md-6 col-sm-6 padding-top-10">
+                  &copy; 2016 庄的小站<br>
+ <a href="javascript:;">Privacy Policy</a> | <a href="javascript:;">Terms of Service</a>
+          </div>
+          <!-- END COPYRIGHT -->
+	  <!-- BEGIN SOCIAL -->
+<div class="col-md-6 col-sm-6">
+  <ul class="social-footer list-unstyled list-inline pull-right">
+    
+      <li><a href="https://github.com/jmz331"><i class="fa fa-github"></i></a></li>
+    
+      <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li>
+    
+  </ul>  
+</div>
+<!-- END SOCIAL -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/js/wow.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
