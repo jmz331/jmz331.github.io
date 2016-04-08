@@ -3,13 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>tags | 庄的小站</title>
+  <title>ubuntu-服务器自动备份 | 庄的小站</title>
   <meta name="author" content="ChinaJMZ">
+  
+  <meta name="description" content="目录结构
+12345.|-- .gitignore	#git的过滤配置文件|-- backup.sh		#备份脚本|-- db_backup		#sql保存目录`-- myweb			#站点
+配置git
+前提，需要配置服务器上访问远程git的权限，推荐ssh密钥方式。
+1234cd ~/server">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="tags"/>
+  <meta property="og:title" content="ubuntu-服务器自动备份"/>
   <meta property="og:site_name" content="庄的小站"/>
 
   
@@ -104,15 +110,31 @@
 			<!-- index -->
 		   
 
-			  		<h2>tags</h2>
+			  		<h2>ubuntu-服务器自动备份</h2>
 					
 					<div>
-						<span class="post-time">2016-04-07 12:48:31</span>
+						<span class="post-time">2016-04-08 16:05:05</span>
 					</div>	
 					
 
 					<div class="article-content">
-						
+						<p><strong>目录结构</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- .gitignore	#git的过滤配置文件</span><br><span class="line">|-- backup.sh		#备份脚本</span><br><span class="line">|-- db_backup		#sql保存目录</span><br><span class="line">`-- myweb			#站点</span><br></pre></td></tr></table></figure>
+<p><strong>配置git</strong></p>
+<p>前提，需要配置服务器上访问远程git的权限，推荐ssh密钥方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~/server</span><br><span class="line">git init</span><br><span class="line">#如果需要的话，一定要记得配置.gitignore，可以讲一些不需要的文件去除掉</span><br><span class="line">git remote add origin git://example.com/example/example.git</span><br></pre></td></tr></table></figure>
+<p><strong>备份脚本</strong></p>
+<p>首先我们需要准备一个sh脚本，用来导出db数据跟提交到git服务器上（由于数据库内容还不多，所以现在可以考虑备份到git上面）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">#请自行替换&lt;user&gt;，&lt;password&gt;，&lt;dbName&gt;</span><br><span class="line">mysqldump --opt --user=&lt;user&gt; --password=&lt;password&gt; &lt;dbName&gt; --skip-lock-tables &gt; &quot;./db_backup/db1.sql&quot;</span><br><span class="line">mysqldump --opt --user=&lt;user&gt; --password=&lt;password&gt; &lt;dbName&gt; --skip-lock-tables &gt; &quot;./db_backup/db2.sql&quot;</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;auto backup&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p><strong>计划任务</strong></p>
+<p>当然，我们配置好上面的代码之后，还不算结束。还需要配置一个定时任务，来定期执行这个<strong>备份脚本</strong>。（不然一直手动来执行的话，也会疯掉）</p>
+<p>打开编辑crontab页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crontab -e</span><br></pre></td></tr></table></figure>
+<p>输入下列内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#backup myweb database &amp; web site</span><br><span class="line">0 1 * * * /usr/server/backup.sh</span><br></pre></td></tr></table></figure>
+<p>上面的任务是每天1点的时候执行那个<code>backup.sh</code>。</p>
+<p>这样，我们就可以安心的去喝茶了。。。</p>
+
 					</div>
 
 			  <!-- about -->
@@ -126,7 +148,7 @@
   
   
    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="tags/index.md" data-title="tags" data-url="/tags/index.html"></div>
+    <div class="ds-thread" data-thread-key="_posts/2016-04-08-ubuntu-服务器自动备份.md" data-title="ubuntu-服务器自动备份" data-url="/2016/04/08/ubuntu-服务器自动备份/"></div>
     <!-- 多说评论框 end -->
    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
