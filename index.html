@@ -249,6 +249,135 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/11/lodash-使用笔记/" itemprop="url">
+                  lodash - 使用笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-11T17:04:23+09:00" content="2016-04-11">
+              2016-04-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/11/lodash-使用笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/lodash-使用笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="transform（转换）"><a href="#transform（转换）" class="headerlink" title="transform（转换）"></a>transform（转换）</h2><p>官方API说明</p>
+<p><code>_.transform(object, [iteratee=_.identity], [accumulator])</code></p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li>object (Array|Object): The object to iterate over.</li>
+<li>[iteratee=_.identity] (Function): The function invoked per iteration.</li>
+<li>[accumulator] (*): The custom accumulator value.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>(*): Returns the accumulated value.</p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//筛选所有2的倍数</span></span><br><span class="line">_.transform([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">result, n</span>) </span>&#123;</span><br><span class="line">  n % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; result.push(n);</span><br><span class="line">&#125;, []);</span><br><span class="line"><span class="comment">// → [2, 4, 6]</span></span><br><span class="line"><span class="comment">//筛选2个2的倍数</span></span><br><span class="line">_.transform([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">result, n</span>) </span>&#123;</span><br><span class="line">  n % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; result.push(n);</span><br><span class="line">  <span class="comment">//结束循环</span></span><br><span class="line">  <span class="keyword">if</span>(result.length == <span class="number">2</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;, []);</span><br><span class="line"><span class="comment">// → [2, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//反转Key跟Value</span></span><br><span class="line">_.transform(&#123; <span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>, <span class="string">'c'</span>: <span class="number">1</span> &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">result, value, key</span>) </span>&#123;</span><br><span class="line">  (result[value] || (result[value] = [])).push(key);</span><br><span class="line">&#125;, &#123;&#125;);</span><br><span class="line"><span class="comment">// → &#123; '1': ['a', 'c'], '2': ['b'] &#125;</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/11/EMCAScript6：下一版本的JavaScript的新特性/" itemprop="url">
                   EMCAScript6：下一版本的JavaScript的新特性
                 </a>
@@ -1564,7 +1693,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1581,7 +1710,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="angularjs," />
+  <meta name="keywords" content="lodash,javascript," />
 
 
 
@@ -80,19 +80,31 @@
 
 
 
-<meta name="description" content="我在使用angular的时候经常碰到一个问题，希望在必要数据加载完成之前暂时不要显示页面。这时，我一般用ui-route的resolve功能并结合数据接口来实现。（数据api我是一般用provider来封装）
-首先，在config中注入testProvider，并非必须，只是演示下如何配置provider。这里有个区别就是，在config中不能直接访问provider的$get中的方法，但是可以访">
+<meta name="description" content="transform（转换）官方API说明
+_.transform(object, [iteratee=_.identity], [accumulator])
+Arguments
+
+object (Array|Object): The object to iterate over.
+[iteratee=_.identity] (Function): The function invoked per">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AngularJS - 利用ui-route及provider实现页面数据预加载的关键">
-<meta property="og:url" content="/2016/04/07/angularjs-ui-route-provider/index.html">
+<meta property="og:title" content="lodash - 使用笔记">
+<meta property="og:url" content="/2016/04/11/lodash-使用笔记/index.html">
 <meta property="og:site_name" content="欢迎来到ChinaJMZ的小站">
-<meta property="og:description" content="我在使用angular的时候经常碰到一个问题，希望在必要数据加载完成之前暂时不要显示页面。这时，我一般用ui-route的resolve功能并结合数据接口来实现。（数据api我是一般用provider来封装）
-首先，在config中注入testProvider，并非必须，只是演示下如何配置provider。这里有个区别就是，在config中不能直接访问provider的$get中的方法，但是可以访">
-<meta property="og:updated_time" content="2016-04-08T09:27:05.000Z">
+<meta property="og:description" content="transform（转换）官方API说明
+_.transform(object, [iteratee=_.identity], [accumulator])
+Arguments
+
+object (Array|Object): The object to iterate over.
+[iteratee=_.identity] (Function): The function invoked per">
+<meta property="og:updated_time" content="2016-04-11T08:20:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AngularJS - 利用ui-route及provider实现页面数据预加载的关键">
-<meta name="twitter:description" content="我在使用angular的时候经常碰到一个问题，希望在必要数据加载完成之前暂时不要显示页面。这时，我一般用ui-route的resolve功能并结合数据接口来实现。（数据api我是一般用provider来封装）
-首先，在config中注入testProvider，并非必须，只是演示下如何配置provider。这里有个区别就是，在config中不能直接访问provider的$get中的方法，但是可以访">
+<meta name="twitter:title" content="lodash - 使用笔记">
+<meta name="twitter:description" content="transform（转换）官方API说明
+_.transform(object, [iteratee=_.identity], [accumulator])
+Arguments
+
+object (Array|Object): The object to iterate over.
+[iteratee=_.identity] (Function): The function invoked per">
 
 
 
@@ -110,7 +122,7 @@
   };
 </script>
 
-  <title> AngularJS - 利用ui-route及provider实现页面数据预加载的关键 | 欢迎来到ChinaJMZ的小站 </title>
+  <title> lodash - 使用笔记 | 欢迎来到ChinaJMZ的小站 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +262,7 @@
             
             
               
-                AngularJS - 利用ui-route及provider实现页面数据预加载的关键
+                lodash - 使用笔记
               
             
           </h1>
@@ -262,8 +274,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-07T16:20:29+09:00" content="2016-04-07">
-              2016-04-07
+            <time itemprop="dateCreated" datetime="2016-04-11T17:04:23+09:00" content="2016-04-11">
+              2016-04-11
             </time>
           </span>
 
@@ -292,8 +304,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/07/angularjs-ui-route-provider/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/angularjs-ui-route-provider/" itemprop="commentsCount"></span>
+                <a href="/2016/04/11/lodash-使用笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/lodash-使用笔记/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -315,11 +327,18 @@
       
 
       
-        <p>我在使用angular的时候经常碰到一个问题，希望在必要数据加载完成之前暂时不要显示页面。这时，我一般用<code>ui-route</code>的<code>resolve</code>功能并结合数据接口来实现。（数据api我是一般用<code>provider</code>来封装）</p>
-<p>首先，在<code>config</code>中注入<code>testProvider</code>，并非必须，只是演示下如何配置<code>provider</code>。这里有个区别就是，在config中不能直接访问<code>provider</code>的<code>$get</code>中的方法，但是可以访问<code>provider</code>对象的属性与方法。(比如下面代码中的<code>this.setPrefix</code>方法)</p>
-<p>其次，然后回到我的需求部分，在ui-route里面获取需要预先加载的数据。这个跟<code>controller</code>中的注入没有区别，如例子只要在<code>resolve.userInfo</code>的方法参数上添加自己需要的<code>provider</code>名称，这里就是<code>test</code>，这样我们就可以直接调用<code>test.current</code>了。<code>resolve</code>也是一个关键，我们用它来获取数据并注入到<code>controller</code>中。</p>
-<p>最后，在<code>controller</code>里面注入我们需要使用的数据，<code>userInfo</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&apos;logging&apos;, [])</span><br><span class="line">    .provider(&quot;test&quot;, function() &#123;</span><br><span class="line">        var prefix;</span><br><span class="line">        this.setPrefix = function(p) &#123;</span><br><span class="line">            prefix = p;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        this.$get = function() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                log: function(msg) &#123;</span><br><span class="line">                    console.log(prefix,msg);</span><br><span class="line">                &#125;,</span><br><span class="line">                current:function()&#123;</span><br><span class="line">                	return &#123;&quot;name&quot;:&quot;JMZ&quot;&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">angular.module(&apos;myApp&apos;, [&apos;logging&apos;]).config([&quot;$stateProvider&quot;, &quot;testProvider&quot; function ($stateProvider, testProvider) &#123;</span><br><span class="line">    testProvider.setPrefix(&quot;works: &quot;);</span><br><span class="line"></span><br><span class="line">    $stateProvider.state(&quot;home/index&quot;, &#123;</span><br><span class="line">        url: &quot;/&quot;,</span><br><span class="line">        &quot;templateUrl&quot;: &quot;home/index.tpl.html&quot;,</span><br><span class="line">        &quot;controller&quot;: &quot;home/index.ctrl&quot;</span><br><span class="line">        resolve: &#123;</span><br><span class="line">            userInfo: function ($q,test) &#123;</span><br><span class="line">                return test.current();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;]).controller(&quot;myCtrl&quot;, [&quot;$scope&quot;,&quot;test&quot;,&quot;userInfo&quot;,function($scope, test,userInfo) &#123;</span><br><span class="line">    test.log(userInfo);    </span><br><span class="line">    $scope.$watch(&apos;myModel&apos;, function(newval) &#123;</span><br><span class="line">        test.log(newval);</span><br><span class="line">    &#125;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        <h2 id="transform（转换）"><a href="#transform（转换）" class="headerlink" title="transform（转换）"></a>transform（转换）</h2><p>官方API说明</p>
+<p><code>_.transform(object, [iteratee=_.identity], [accumulator])</code></p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li>object (Array|Object): The object to iterate over.</li>
+<li>[iteratee=_.identity] (Function): The function invoked per iteration.</li>
+<li>[accumulator] (*): The custom accumulator value.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>(*): Returns the accumulated value.</p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//筛选所有2的倍数</span></span><br><span class="line">_.transform([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">result, n</span>) </span>&#123;</span><br><span class="line">  n % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; result.push(n);</span><br><span class="line">&#125;, []);</span><br><span class="line"><span class="comment">// → [2, 4, 6]</span></span><br><span class="line"><span class="comment">//筛选2个2的倍数</span></span><br><span class="line">_.transform([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">result, n</span>) </span>&#123;</span><br><span class="line">  n % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; result.push(n);</span><br><span class="line">  <span class="comment">//结束循环</span></span><br><span class="line">  <span class="keyword">if</span>(result.length == <span class="number">2</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;, []);</span><br><span class="line"><span class="comment">// → [2, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//反转Key跟Value</span></span><br><span class="line">_.transform(&#123; <span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>, <span class="string">'c'</span>: <span class="number">1</span> &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">result, value, key</span>) </span>&#123;</span><br><span class="line">  (result[value] || (result[value] = [])).push(key);</span><br><span class="line">&#125;, &#123;&#125;);</span><br><span class="line"><span class="comment">// → &#123; '1': ['a', 'c'], '2': ['b'] &#125;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -339,7 +358,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/angularjs/" rel="tag">#angularjs</a>
+            <a href="/tags/lodash/" rel="tag">#lodash</a>
+          
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
           
         </div>
       
@@ -348,17 +369,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/07/gulp-guide/" rel="next" title="gulp-guide">
-                <i class="fa fa-chevron-left"></i> gulp-guide
+              <a href="/2016/04/11/EMCAScript6：下一版本的JavaScript的新特性/" rel="next" title="EMCAScript6：下一版本的JavaScript的新特性">
+                <i class="fa fa-chevron-left"></i> EMCAScript6：下一版本的JavaScript的新特性
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/07/apns-notice/" rel="prev" title="APNS开发帮助">
-                APNS开发帮助 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -384,8 +401,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/07/angularjs-ui-route-provider/"
-           data-title="AngularJS - 利用ui-route及provider实现页面数据预加载的关键" data-url="/2016/04/07/angularjs-ui-route-provider/">
+      <div class="ds-thread" data-thread-key="2016/04/11/lodash-使用笔记/"
+           data-title="lodash - 使用笔记" data-url="/2016/04/11/lodash-使用笔记/">
       </div>
     
   </div>
@@ -487,7 +504,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#transform（转换）"><span class="nav-number">1.</span> <span class="nav-text">transform（转换）</span></a></li></ol></div>
             
           </div>
         </section>
