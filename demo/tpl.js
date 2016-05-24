@@ -1,0 +1,2 @@
+angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("tpl.home.html","<p>\n    <a ui-sref=\"home\">Home</a> | <a ui-sref=\"info\">Info</a>\n</p>\n\n<p>\nHelloWorld {{self.time}}\n</p>\n\n<button class=\"btn btn-primary\" data-ng-click=\"self.refresh()\">Refresh</button>\n\n");
+$templateCache.put("tpl.info.html","<p>\n    <a ui-sref=\"home\">Home</a> | <a ui-sref=\"info\">Info</a>\n</p>\n\nInfo page.\n\n");}]);

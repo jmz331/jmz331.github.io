@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app="appIndex">
+<head>
+    <meta charset="utf-8"/>
+    <title>AngularSinglePageWebApp</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/base.css"/>
+</head>
+<body>
+<ui-view></ui-view>
+<div class="loading" data-ng-show="isLoading"><p>Loading...</p></div>
+<script src="./lib.js"></script>
+<script src="./tpl.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
