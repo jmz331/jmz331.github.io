@@ -249,6 +249,127 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/05/Vagrant使用说明1/" itemprop="url">
+                  Vagrant使用说明1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-05T10:35:50+09:00" content="2017-01-05">
+              2017-01-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/05/Vagrant使用说明1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/05/Vagrant使用说明1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>Create and configure lightweight, reproducible, and portable development environments.
+</code></pre><p>正如官网所描述的一样Vagrant是一个类似于docker能用来快速的配置锁需要的开发环境，而不收到每台机子自身环境的影响。</p>
+<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><p>Vagrant有下列基本使用命令来控制管理虚拟机：</p>
+<p>执行方式： vagrant <command></p>
+<ul>
+<li>up 启动虚拟机</li>
+<li>halt 关闭虚拟机</li>
+<li>suspend 暂停虚拟机，虚拟机内存等信息将以文件的方式保存在本地，可以通过执行恢复操作来继续使用</li>
+<li>resume 恢复虚拟机，与前面的暂停相对应</li>
+<li>destroy 删除虚拟机，会删除当前虚拟机，但是Vagrantfile文件会被保留</li>
+</ul>
+<h4 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h4><p>1.下载并添加box</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#将指定位置（./precise32.box）的box以`“precise32”`的名字添加到本地box中</span><br><span class="line">vagrant box add precise32 ./precise32.box</span><br><span class="line">#查看本地box列表</span><br><span class="line">vagrant box list</span><br></pre></td></tr></table></figure>
+<p>2.创建一个虚拟机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/temp/test</span><br><span class="line">cd ~/temp/test</span><br><span class="line">vagrant init</span><br></pre></td></tr></table></figure>
+<p>执行以上命令后，会在temp/test目录下自动生成一个Vagrantfile文件，下面的例子是创建一个名为web1的私有网络服务器192.168.50.4（只能被本机访问）</p>
+<p>Vagrantfile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">VAGRANTFILE_API_VERSION = &quot;2&quot;</span><br><span class="line"></span><br><span class="line">Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|</span><br><span class="line">  </span><br><span class="line">config.vm.define &quot;web1&quot; do |web1|</span><br><span class="line">    web1.vm.box = &quot;precise32&quot;</span><br><span class="line">    web1.vm.network &quot;private_network&quot;, ip: &quot;192.168.50.4&quot;</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>然后在当前目录下启动服务器并通过ssh登录到虚拟机内</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br><span class="line">vagrant ssh</span><br></pre></td></tr></table></figure>
+<p>3.打包已配置的环境</p>
+<p>当然，我们的最终目的是团队间共享同一个开发环境，那么我们就必须要用到打包功能。Vagrant提供了一个很简单的命令，来打包我们配置号的开发环境。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#首先，还是进入到虚拟机目录，然后执行下面命令</span><br><span class="line">#我们将当前目录打包成一个web.box文件</span><br><span class="line">vagrant package --output web.box</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/11/lodash-使用笔记/" itemprop="url">
                   lodash - 使用笔记
                 </a>
@@ -1693,7 +1814,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1710,7 +1831,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1760,7 +1881,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
