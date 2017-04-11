@@ -249,6 +249,164 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/07/gulp-guide/" itemprop="url">
+                  gulp-guide
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:02:50+09:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/gulp-guide/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/gulp-guide/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h1><p>gulp是基于Node.js的前端自动化构建工具，主要用于代码打包。目前主流的前端打包工具，grunt，gulp，webpack。grunt现在似乎慢慢被gulp取代，而我使用gulp也是冲着大家说的配置简单去的，至于通道流，运行文件什么的其实还是次要的；webpack现在很火，听说功能强大，没有用过。</p>
+<p><code>npm install gulp -g</code></p>
+<p>注意需要在npm全局中安装gulp，否则命令窗口中找不到gulp快捷命令，记得检查环境变量的配置情况。</p>
+<h2 id="gulp-插件"><a href="#gulp-插件" class="headerlink" title="gulp 插件"></a>gulp 插件</h2><p>gulp的使用离不开gulp插件的使用，下面是常用的几款。</p>
+<blockquote>
+<p>npm install del gulp gulp-concat gulp-minify-css gulp-replace gulp-uglify gulp-rev gulp-rev-collector –save-dev<br>del 和 gulp-clean<br>del是node.js的插件，两者的效果相似，都是用来清除文件。至于为什么使用 del，而不是 gulp-clean，我是看到网上一篇文章推荐的。</p>
+</blockquote>
+<ul>
+<li><p>gulp-concat</p>
+<blockquote>
+<p>gulp-concat用来做文件合并，可以将多个文件合并成一个文件，减少静态资源数量。</p>
+</blockquote>
+</li>
+<li><p>gulp-minify-css</p>
+<blockquote>
+<p>gulp-minify-css是css的压缩工具。</p>
+</blockquote>
+</li>
+<li><p>gulp-uglify</p>
+<blockquote>
+<p>gulp-uglify是js的压缩工具。官方文档上是这么写的 “Minify files with UglifyJS.”</p>
+</blockquote>
+</li>
+<li><p>gulp-replace</p>
+<blockquote>
+<p>gulp-replace是一个文本修改插件，我们一般用来做文件内容的的修改，常用的是路径修改。</p>
+</blockquote>
+</li>
+<li><p>gulp-rev和gulp-rev-collector</p>
+<blockquote>
+<p>gulp-rev和gulp-rev-collector，并没有用到，这里只做标示。这两个插件可以用来处理文件名，同时生成一个json文件保存修改前的文件名和修改后的文件名，并且自动处理文件中的修改，例如图片文件至于css文件。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="gulp的配置文件gulpfile-js"><a href="#gulp的配置文件gulpfile-js" class="headerlink" title="gulp的配置文件gulpfile.js"></a>gulp的配置文件gulpfile.js</h2><p>gulp依赖于配置文件gulpfile.js，在运行目录下需要手动创建gulpfile.js，gulp的任务执行代码会调用gulpfile.js。</p>
+<h2 id="gulp-语法"><a href="#gulp-语法" class="headerlink" title="gulp 语法"></a>gulp 语法</h2><p>gulp的语法很简单，功能实现依赖于各种插件，所以学习上成本很低。gulp的语法其实就是是nodejs的语法。</p>
+<h3 id="配置gulpfile"><a href="#配置gulpfile" class="headerlink" title="配置gulpfile"></a>配置gulpfile</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明依赖的插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>);</span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">'gulp-concat'</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</span><br><span class="line"><span class="keyword">var</span> del = <span class="built_in">require</span>(<span class="string">'del'</span>);</span><br><span class="line"><span class="keyword">var</span> replace = <span class="built_in">require</span>(<span class="string">'gulp-replace'</span>);</span><br><span class="line"><span class="comment">//定义task</span></span><br><span class="line">gulp.task(<span class="string">'taskName'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//default是默认task，当命令行缺省调用时会执行default任务。</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [])</span><br></pre></td></tr></table></figure>
+<h3 id="命令行调用task"><a href="#命令行调用task" class="headerlink" title="命令行调用task"></a>命令行调用task</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#直接调用具体的task</span><br><span class="line">gulp taskName </span><br><span class="line">#调用默认的default，如果没用会报错</span><br><span class="line">gulp</span><br></pre></td></tr></table></figure>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//多个任务合并</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'task1'</span>, <span class="string">'task2'</span>, <span class="string">'task3'</span>, <span class="string">'task4'</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//文件拷贝语法</span></span><br><span class="line">gulp.src(<span class="string">"oldPath/images/*.*"</span>)</span><br><span class="line">    .pipe(gulp.dest(newPath+<span class="string">'/images'</span>));</span><br><span class="line">    </span><br><span class="line"><span class="comment">//文件合并且压缩语法</span></span><br><span class="line"><span class="comment">//css文件</span></span><br><span class="line">gulp.src([<span class="string">'app/assets/styles/style.css'</span>,</span><br><span class="line">          <span class="string">'app/assets/styles/public.css'</span>,</span><br><span class="line">          <span class="string">'app/assets/styles/page.css'</span>,</span><br><span class="line">          <span class="string">'app/assets/styles/jquery-ui-1.10.3.css'</span>])</span><br><span class="line">    .pipe(concat(<span class="string">'style.css'</span>))</span><br><span class="line">    .pipe(minifycss())</span><br><span class="line">    .pipe(gulp.dest(newPath));</span><br><span class="line"><span class="comment">//js文件</span></span><br><span class="line">gulp.src([</span><br><span class="line">        <span class="string">'app/components/*/*.js'</span></span><br><span class="line">    ])</span><br><span class="line">    .pipe(concat(<span class="string">'components.js'</span>))</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(newPath));</span><br><span class="line"><span class="comment">//文本修改</span></span><br><span class="line">gulp.task(<span class="string">'demo-replace'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.src(demoDir+<span class="string">'/index.html'</span>)  </span><br><span class="line">      .pipe(replace(<span class="string">'&lt;link rel="stylesheet"&gt;'</span>, <span class="string">''</span>))  <span class="comment">//删除</span></span><br><span class="line">      .pipe(replace(<span class="regexp">/\.\.\/assets\//g</span>, <span class="string">''</span>))                <span class="comment">//正则替换</span></span><br><span class="line">      .pipe(replace(<span class="regexp">/\.\.\/images/g</span>, <span class="string">'images'</span>))  </span><br><span class="line">      .pipe(gulp.dest(newPath));</span><br><span class="line"><span class="comment">//目录清理</span></span><br><span class="line">gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</span><br><span class="line">    del(rootPath, cb);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>作者：<a href="http://my.oschina.net/u/924762/blog/628510?fromerr=0sUJ8B33" target="_blank" rel="external">http://my.oschina.net/u/924762/blog/628510?fromerr=0sUJ8B33</a></p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/07/hexo-guide-1/" itemprop="url">
                   hexo教程1 - 写作
                 </a>
@@ -595,7 +753,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
